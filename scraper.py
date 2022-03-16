@@ -12,10 +12,10 @@ class Scraper:
 
     def get_response(self):
         response = requests.get(self.url, headers=self.headers)
-        if response.status_code != 200:
+        if response.ok:
+            return response
+        else:
             raise Exception('HTML request error, status code ' + str(response.status_code))
-
-        return response
 
     # get the location of the gas station
     def get_location(self):

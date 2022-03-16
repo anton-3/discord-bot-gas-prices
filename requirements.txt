@@ -1,4 +1,3 @@
-selenium
 nextcord
 requests
 lxml
