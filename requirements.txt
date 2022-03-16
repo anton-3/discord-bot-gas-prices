@@ -1,2 +1,5 @@
 selenium
 nextcord
+requests
+lxml
+cssselect
