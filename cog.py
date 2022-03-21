@@ -85,7 +85,7 @@ class Cog(commands.Cog):
     def get_time(self):
         return datetime.now().strftime('%H:%M:%S %m/%d/%y')
 
-    @tasks.loop(minutes=5.0)
+    @tasks.loop(minutes=15.0)
     async def scrape(self):
         if self.update_ctx is None or not self.client.is_ready():
             print('not ready yet')
