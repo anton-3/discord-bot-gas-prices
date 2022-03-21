@@ -94,10 +94,11 @@ class Cog(commands.Cog):
         for scraper in self.scrapers:
             old_prices = scraper.last_prices
             new_prices = scraper.get_prices()
-            if old_prices == new_prices:
+            # if this is isn't the first time checking AND the price of regular has changed
+            if len(old_prices) != 0 and old_prices['regular'] == new_prices['regular']:
                 print(f'Prices checked for {scraper.name} at {self.get_time()}, no changes')
             else:
-                update = f'Price change for {scraper.name} at {self.get_time()}'
+                update = f'Price update for {scraper.name} at {self.get_time()}'
                 print(update)
                 print(new_prices)
                 update += f'\nRegular: {new_prices["regular"]}'
